@@ -6,8 +6,8 @@
   "pluginsFile": "./cypress/plugins/index",
   "supportFile": "./cypress/support/index.js",
   "video": true,
-  "viewportWidth": 1400,
-  "viewportHeight": 1000,
+  "viewportWidth": 375,
+  "viewportHeight": 667,
   "defaultCommandTimeout": 20000,
   "chromeWebSecurity": false
 }

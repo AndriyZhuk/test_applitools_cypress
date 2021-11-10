@@ -4,12 +4,12 @@
   "description": "for applitools example tests",
   "main": "index.js",
   "scripts": {
-    "cy-termianall": "./node_modules/.bin/cypress open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cypress run",
+    "e2e:cache": "cypress cache clear"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndriyZhuk/test_applitools_cypress.git"
+    "url": "https://github.com/AndriyZhuk/test_applitools_cypress.git"
   },
   "keywords": [
     "test"
@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/AndriyZhuk/test_applitools_cypress#readme",
   "devDependencies": {
-    "cypress": "^8.7.0"
+    "cypress": "^8.7.0",
+    "@applitools/eyes-cypress": "^3.22.7",
+    "eslint-plugin-cypress": "^2.10.3",
+    "prettier": "2.1.2"
   }
 }

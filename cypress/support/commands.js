@@ -27,5 +27,5 @@
 // By default Cypress removes all cookies after each test case
 // Prevent ethic_token from removing
 Cypress.Cookies.defaults({
-    preserve: 'ethic_token',
+  preserve: "ethic_token",
 });
