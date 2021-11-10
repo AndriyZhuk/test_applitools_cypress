@@ -1,0 +1,26 @@
+{
+  "name": "hub-simple-test",
+  "version": "1.0.0",
+  "description": "for applitools example tests",
+  "main": "index.js",
+  "scripts": {
+    "cy-termianall": "./node_modules/.bin/cypress open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriyZhuk/test_applitools_cypress.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "AndriiZhuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriyZhuk/test_applitools_cypress/issues"
+  },
+  "homepage": "https://github.com/AndriyZhuk/test_applitools_cypress#readme",
+  "devDependencies": {
+    "cypress": "^8.7.0"
+  }
+}
