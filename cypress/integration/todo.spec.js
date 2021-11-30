@@ -5,28 +5,19 @@ const password = "";
 const browsers = [
   {
     iosDeviceInfo: {
-      deviceName: "iPhone 11",
+      deviceName: "iPhone 11 Pro",
       screenOrientation: "portrait",
       iosVersion: "latest",
     },
   },
-  {
-    iosDeviceInfo: {
-      deviceName: "iPhone 7",
-      screenOrientation: "portrait",
-      iosVersion: "latest",
-    },
-  },
-  { width: 375, height: 667, name: "chrome" },
-  { width: 1400, height: 1000, name: "safari" },
-  { width: 1400, height: 1000, name: "edgechromium" },
+  { width: 475, height: 667, name: "chrome" },
 ];
 
 const eyesOpenOptions = {
   appName: "Community hub",
   batchName: "Community hub",
   notifyOnCompletion: true,
-  testName: "Next page test",
+  testName: "Pillars edit popup test",
 };
 
 describe("Visual Validation Applitools", () => {
@@ -49,39 +40,19 @@ describe("Visual Validation Applitools", () => {
     cy.wait(3000);
   });
 
-  it("make screenshot of what`s New page", () => {
-    cy.visit("https://community.ethic.com/hub/next");
+  it("make screenshot of ", () => {
+    cy.visit("https://community.ethic.com/hub/profile");
+    cy.contains("hub-profile-pillars-card button", "Edit").click();
+    cy.wait(3000); // for eyes stability
+    cy.get(".edit-popup").should("be.visible");
 
-    cy.wait(3000);
     cy.eyesCheckWindow({
-      tag: "screenshot of What`s Next",
-      ignore: [
-        {
-          type: "css",
-          selector: "video",
-        },
-        {
-          type: "css",
-          selector: ".welcome-image",
-        },
-      ],
-      content: [
-        {
-          type: "css",
-          selector: ".top .title",
-        },
-        {
-          type: "css",
-          selector: ".top-bar-container",
-        },
-        {
-          type: "css",
-          selector: ".promotion-block-icon img",
-        },
-      ],
-      target: "window",
-      fully: true,
+      tag: "screenshot of pillars edit popup",
+      target: "region",
+      selector: ".edit-popup",
     });
-    cy.wait(5000);
+
+    cy.wait(3000); // for eyes stability
+    cy.contains("button", "Cancel").invoke("show", { force: true }).click();
   });
 });
