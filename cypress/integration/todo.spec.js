@@ -2,16 +2,7 @@
 const email = "";
 const password = "";
 
-const browsers = [
-  {
-    iosDeviceInfo: {
-      deviceName: "iPhone 11 Pro",
-      screenOrientation: "portrait",
-      iosVersion: "latest",
-    },
-  },
-  { width: 475, height: 667, name: "chrome" },
-];
+const browsers = [{ width: 475, height: 667, name: "chrome" }];
 
 const eyesOpenOptions = {
   appName: "Community hub",
@@ -44,12 +35,12 @@ describe("Visual Validation Applitools", () => {
     cy.visit("https://community.ethic.com/hub/profile");
     cy.contains("hub-profile-pillars-card button", "Edit").click();
     cy.wait(3000); // for eyes stability
-    cy.get(".edit-popup").should("be.visible");
+    cy.get("hub-edit-popup").should("be.visible");
 
     cy.eyesCheckWindow({
       tag: "screenshot of pillars edit popup",
       target: "region",
-      selector: ".edit-popup",
+      selector: "hub-edit-popup",
     });
 
     cy.wait(3000); // for eyes stability
