@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/AndriyZhuk/test_applitools_cypress#readme",
   "devDependencies": {
-    "cypress": "^8.7.0",
+    "cypress": "^9.1.0",
     "@applitools/eyes-cypress": "^3.23.3",
     "eslint-plugin-cypress": "^2.10.3",
     "prettier": "2.1.2"

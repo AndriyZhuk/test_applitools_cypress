@@ -17,7 +17,7 @@ const eyesOpenOptions = {
   appName: "Community hub",
   batchName: "Community hub",
   notifyOnCompletion: true,
-  testName: "Pillars edit popup test",
+  testName: "Account delete popup test",
 };
 
 describe("Visual Validation Applitools", () => {
@@ -41,18 +41,18 @@ describe("Visual Validation Applitools", () => {
   });
 
   it("make screenshot of ", () => {
-    cy.visit("https://community.ethic.com/hub/profile");
-    cy.contains("hub-profile-pillars-card button", "Edit").click();
+    cy.visit("https://community.ethic.com/hub/settings");
+    cy.contains(".link-text", "Delete account").click();
     cy.wait(3000); // for eyes stability
-    cy.get(".edit-popup").should("be.visible");
+    cy.get("mat-dialog-container").should("be.visible");
 
     cy.eyesCheckWindow({
-      tag: "screenshot of pillars edit popup",
-      target: "region",
-      selector: ".edit-popup",
+      tag: "screenshot of Delete my account dialog",
+      target: "window",
+      fully: false
     });
 
     cy.wait(3000); // for eyes stability
-    cy.contains("button", "Cancel").invoke("show", { force: true }).click();
+    cy.contains("button", "Keep my account").invoke("show", { force: true }).click();
   });
 });
