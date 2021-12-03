@@ -49,10 +49,9 @@ describe("Visual Validation Applitools", () => {
     cy.eyesCheckWindow({
       tag: "screenshot of Delete my account dialog",
       target: "window",
-      fully: false
+      fully: false,
     });
 
     cy.wait(3000); // for eyes stability
-    cy.contains("button", "Keep my account").invoke("show", { force: true }).click();
   });
 });
