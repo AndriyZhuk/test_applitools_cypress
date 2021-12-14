@@ -5,19 +5,28 @@ const password = "";
 const browsers = [
   {
     iosDeviceInfo: {
-      deviceName: "iPhone 11 Pro",
-      screenOrientation: "portrait",
-      iosVersion: "latest",
+      deviceName: 'iPhone 11 Pro',
+      screenOrientation: 'portrait',
+      iosVersion: 'latest-1',
     },
   },
-  { width: 475, height: 667, name: "chrome" },
+  {
+    iosDeviceInfo: {
+      deviceName: 'iPhone 8',
+      screenOrientation: 'portrait',
+      iosVersion: 'latest-1',
+    },
+  },
+  { width: 375, height: 667, name: 'chrome' },
+  { width: 1400, height: 1000, name: 'firefox' },
+  { width: 1400, height: 1000, name: 'safari' },
 ];
 
 const eyesOpenOptions = {
   appName: "Community hub",
   batchName: "Community hub",
   notifyOnCompletion: true,
-  testName: "Account delete popup test",
+  testName: "Edit interest level popup test",
 };
 
 describe("Visual Validation Applitools", () => {
@@ -41,13 +50,42 @@ describe("Visual Validation Applitools", () => {
   });
 
   it("make screenshot of ", () => {
-    cy.visit("https://community.ethic.com/hub/settings");
-    cy.contains(".link-text", "Delete account").click();
+    cy.visit("https://community.ethic.com/hub/profile");
+    cy.get('[data-cy="impactsInterestLevel"] button')
+      .invoke("show", { force: true })
+      .click({ force: true });
+    cy.get(".hub-edit-profile-popup hub-areas-editor").should("be.visible");
+
     cy.wait(3000); // for eyes stability
-    cy.get("mat-dialog-container").should("be.visible");
 
     cy.eyesCheckWindow({
-      tag: "screenshot of Delete my account dialog",
+      tag: "screenshot of interest level popup",
+      ignore: [
+        {
+          type: "css",
+          selector: "video",
+        },
+        {
+          type: "css",
+          selector: "hub-profile-video",
+        },
+      ],
+      content: [
+        {
+          type: "css",
+          selector: ".slogan",
+        },
+      ],
+      layout: [
+        {
+          type: "css",
+          selector: ".footer-text",
+        },
+        {
+          type: "css",
+          selector: '[data-cy="ignoringNumberForApplitools"]',
+        },
+      ],
       target: "window",
       fully: false,
     });
