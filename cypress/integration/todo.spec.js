@@ -35,9 +35,12 @@ describe("Visual Validation Applitools", () => {
     cy.visit("https://community.ethic.com/hub/profile");
     cy.contains("hub-profile-pillars-card button", "Edit").click();
     cy.wait(3000); // for eyes stability
-    cy.get("hub-edit-popup").should("be.visible");
+    cy.get(".hub-edit-profile-popup").should("be.visible");
 
     cy.eyesCheckWindow({
+      scriptHooks: {
+        beforeCaptureScreenshot: "document.querySelector('html').style.top='0px'"
+      },
       tag: "screenshot of pillars edit popup",
       target: "region",
       selector: "hub-edit-popup",
